@@ -1,21 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-TW">
-    <head>
-        @include('partials/_head')
-    </head>
 
-<body>
-    @include('partials/_nav')
-    
-    @include('partials/_messages')
+    <!-- head -->
+    @include('partials/_head')
+    <!-- /head -->
 
-    <div class="container">
-        {{ Auth::check() ? "Logged in" : "Logged out"}}
+    <body>
+        @include('partials/_nav')
+        @include('partials/_banner')
+        @include('partials/_messages')
+
         @yield('content')
-        <hr>
-    </div> <!-- end of container -->
 
-    @include('partials/_footer')
-    @include('partials/_script')
+        @include('partials/_footer')
+        @include('partials/_script')
+
     </body>
 </html>
