@@ -12,7 +12,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_01.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_01.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$25.75</h6>
@@ -30,7 +30,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_02.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_02.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$30.25</h6>
@@ -48,7 +48,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_03.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_03.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$20.45</h6>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_04.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_04.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$15.25</h6>
@@ -84,7 +84,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_05.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_05.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$12.50</h6>
@@ -102,7 +102,7 @@
           </div>
           <div class="col-md-4">
             <div class="product-item">
-              <a href="#"><img src="images/product_06.jpg" alt=""></a>
+              <a href="#"><img src="asset/images/product_06.jpg" alt=""></a>
               <div class="down-content">
                 <a href="#"><h4>Tittle goes here</h4></a>
                 <h6>$22.50</h6>
@@ -148,7 +148,7 @@
           <!-- 最新貼文的圖片 -->
           <div class="col-md-6">
             <div class="right-image">
-              <img src="images/feature-image.jpg" alt="">
+              <img src="asset/images/feature-image.jpg" alt="">
             </div>
           </div>
         </div>

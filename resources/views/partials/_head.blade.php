@@ -14,7 +14,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
 
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
    
     <!--TemplateMo 546 Sixteen Clothing：https://templatemo.com/tm-546-sixteen-clothing-->
 
@@ -23,13 +23,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
-    <link rel="stylesheet" href="{{asset('css/templatemo-sixteen.css')}}">
-    <link rel="stylesheet" href="{{asset('css/styles.css') }}">
+    
+    <link rel="stylesheet" href="{{asset('asset/css/templatemo-sixteen.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/styles.css') }}">
     <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/owl.css')}}">
     <!--交付CSS在連結上-->
 
     @yield('stylesheet')

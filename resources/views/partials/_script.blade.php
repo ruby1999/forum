@@ -1,16 +1,16 @@
 @yield('scripts')
 
 <!-- Bootstrap core JavaScript -->
-<script src="{{asset('jquery/jquery.js')}}"></script>
-<script src="{{asset('jquery/jquery.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('asset/jquery/jquery.js')}}"></script>
+<script src="{{asset('asset/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('asset/js/bootstrap.bundle.min.js')}}"></script>
 
 <!-- Additional Scripts -->
-<script src="{{asset('js/custom.js')}}"></script>
-<script src="{{asset('js/owl.js')}}"></script>
-<script src="{{asset('js/slick.js')}}"></script>
-<script src="{{asset('js/isotope.js')}}"></script>
-<script src="{{asset('js/accordions.js')}}"></script>
+<script src="{{asset('asset/js/custom.js')}}"></script>
+<script src="{{asset('asset/js/owl.js')}}"></script>
+<script src="{{asset('asset/js/slick.js')}}"></script>
+<script src="{{asset('asset/js/isotope.js')}}"></script>
+<script src="{{asset('asset/js/accordions.js')}}"></script>
 
 
 <script language = "{{asset('text/Javascript')}}"> 
