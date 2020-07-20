@@ -32,11 +32,13 @@ class ProductController extends Controller
     public function showList()
     {
         $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
 
         //return a view and pass in the above variable
         //自動分頁的方法
         $products = Product::orderBy('id', 'asc')->paginate(5);
-        return view('products.index')->withProducts($products);
+        return view('products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
     }
 
     public function create()
