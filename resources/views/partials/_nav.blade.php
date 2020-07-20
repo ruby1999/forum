@@ -13,7 +13,7 @@
 <header class="">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-        <a class="navbar-brand" href="home.blade".html><h2>風雨珈琲 <em>ForumeCoffee</em></h2></a>
+        <a class="navbar-brand" href="/home".html><h2>風雨珈琲 <em>ForumeCoffee</em></h2></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,7 +22,7 @@
             <ul class="navbar-nav ml-auto">
             <!--Nav Bar-->
             <li class="nav-item active">
-                <a class="nav-link" href="home.home">主頁
+                <a class="nav-link" href="/home">主頁
                 <span class="sr-only">(current)</span>
                 </a>
             </li> 
@@ -108,7 +108,7 @@
             <!--end of drop down-->
 
             
-            <a href="about.html" class="filled-button bottom-h1-spacing">登入或註冊</a>
+            <a href="about.html" class="filled-button " style="height: max-content;  margin-top: 10px;">登入或註冊</a>
 
 
             <!--Nav Bar-->

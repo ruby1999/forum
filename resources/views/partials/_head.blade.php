@@ -8,11 +8,13 @@
 
     <!-- Bootstrap core CSS -->
     <!--字體跟標籤小icon都沒作用(我問天)-->
+    <link rel="icon" href="asset/images/favicon.ico" type="image/x-icon">
+    <link rel="Shortcut Icon" type="image/x-icon" href="asset/images/favicon.ico" />
+    <link rel="fluid-icon" href="asset/images/favicon.ico">
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
 
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-
-    <link rel="Shortcut Icon" type="image/x-icon" href="{{ asset('image/favicon.ico')}}" />
    
     <!--TemplateMo 546 Sixteen Clothing：https://templatemo.com/tm-546-sixteen-clothing-->
 
@@ -23,7 +25,7 @@
 
 
 
-    <link rel="stylesheet" href="{{asset('css/templatemo-sixteen.css') }}">
+    <link rel="stylesheet" href="{{asset('css/templatemo-sixteen.css')}}">
     <link rel="stylesheet" href="{{asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">

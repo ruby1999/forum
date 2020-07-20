@@ -21,8 +21,10 @@
 
 @section('content')
 
-	<div class="row">
-		<div class="col-md-8">
+	<div class="row" style="padding-top: 30px">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-5">
             {!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'PUT', 'files'=> 'true']) !!}
 			{{ Form::label('name', '產品名稱:') }}
 			{{ Form::text('name', null, ["class" => 'form-control input-lg']) }}
@@ -37,8 +39,15 @@
 			{{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
 
 			{{ Form::label('featured_img', '更新產品圖片', ['class' => 'form-spacing-top']) }}
-            {{ Form::file('featured_img') }}
+			{{ Form::file('featured_img') }}
 			
+			<!-- 圖片-->
+			@if(!empty($product->image))
+				<img src="{{asset('asset/images/' . $product->image)}}" width="400" height="400" />
+			@endif
+			
+			<hr>
+
 			{{ Form::label('introduction', "簡述:", ['class' => 'form-spacing-top']) }}
 			{{ Form::textarea('introduction', null, ['class' => 'form-control']) }}
 
@@ -49,16 +58,16 @@
 			{{ Form::text('price', null, ['class' => 'form-control']) }}
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="well">
 				<dl class="dl-horizontal">
 					<dt>建立時間:</dt>
-					<dd>{{ date('Y m j H:s', strtotime($product->created_at)) }}</dd>
+					<dd>{{ date('Y/m/j  H:s', strtotime($product->created_at)) }}</dd>
 				</dl>
 
 				<dl class="dl-horizontal">
 					<dt>上次更新時間:</dt>
-					<dd>{{ date('Y m j H:s', strtotime($product->updated_at)) }}</dd>
+					<dd>{{ date('Y/m/j  H:s', strtotime($product->updated_at)) }}</dd>
 				</dl>
 				<hr>
 				<div class="row">
@@ -88,7 +97,7 @@
 
 <script type="text/javascript">
 	$('.select2-multi').select2();
-	$('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger('change');
+	$('.select2-multi').select2().val({!! json_encode($product->tags()->allRelatedIds()) !!}).trigger('change');
 </script>
 
 @endsection <!-- End of Scripts -->

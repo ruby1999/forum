@@ -2,8 +2,10 @@
 @section('title', '所有產品列表')
 
 @section('content')
-<div class="row">
-    <div class="col-md-8">
+<div class="row" style="padding-top:20px">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-5">
         <h1>{{ $product->name}}</h1>
         <p class="lead">{!!$product->introduction !!}</p>
 
@@ -15,7 +17,7 @@
     </div>
 
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="well">
             <dl class="dl-horizontal">
                 <dt>產品英文名稱:</dt>
