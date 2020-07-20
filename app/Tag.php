@@ -13,6 +13,6 @@ class Tag extends Model
 
     public function Stores()
     {
-    	return $this->belongsToMany('App\Stores');
+    	return $this->belongsToMany('App\Store');
     }
 }

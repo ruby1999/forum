@@ -9,18 +9,25 @@
     <!-- Bootstrap core CSS -->
     <!--字體跟標籤小icon都沒作用(我問天)-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="Shortcut Icon" type="image/x-icon" href="image/favicon.ico" />
-    <link rel="fluid-icon" href="images/favicon.ico">
+
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{ asset('image/favicon.ico')}}" />
+   
     <!--TemplateMo 546 Sixteen Clothing：https://templatemo.com/tm-546-sixteen-clothing-->
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/fontawesome.css">
-    <link rel="stylesheet" href="css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="css/owl.css">
-    <link rel="stylesheet" href="css/styles.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="{{asset('css/templatemo-sixteen.css') }}">
+    <link rel="stylesheet" href="{{asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')}}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.css')}}">
     <!--交付CSS在連結上-->
 
     @yield('stylesheet')

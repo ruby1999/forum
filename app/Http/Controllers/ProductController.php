@@ -43,8 +43,8 @@ class ProductController extends Controller
             'name'          => 'required|max:255',
             'category_id'   => 'required|integer', //保護傳入非整數的數值
             'slug'          => 'required|alpha_dash|min:5|max:255|unique:products,slug',
-            'introduction'  => 'required|max:500',
-            'description'   => 'required|max:500',
+            'introduction'  => 'required|max:1000',
+            'description'   => 'required|max:1000',
             'price'         => 'required|integer'
         ));
 

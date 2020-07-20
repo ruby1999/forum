@@ -1,4 +1,3 @@
-
   @extends('main')
   @section('title', '主頁')
   @section('content') <!-- Content Start-->

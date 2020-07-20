@@ -7,7 +7,6 @@
 
     <!--引用tinymce v4-->
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-    <script src="parsley.min.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea',  // change this value according to your HTML
@@ -19,7 +18,6 @@
 @endsection
 
 @section('content') <!-- Content Start-->
-
 <div class="col-md-8 col-md-offset-2">
     <h1>上架新產品</h1>
     <hr>
@@ -27,7 +25,7 @@
     <!-- 'files' => true 可以傳輸檔案(照片) 如果是用html參數的話要加入enctype="multipart/form-data"-->
 
         {{Form::label('name','產品名稱:')}}
-        {{Form::text('title', null, array('class' => 'form-control', 'required'=>'', 'maxlength'=>'255'))}}
+        {{Form::text('name', null, array('class' => 'form-control', 'required'=>'', 'maxlength'=>'255'))}}
 
         {{Form::label('slug','產品英文名稱:')}}
         {{Form::text('slug', null, array('class' => 'form-control', 'required'=>'', 'minlength'=>'5', 'maxlength'=>'255'))}}
@@ -68,10 +66,9 @@
 
 @section('script') 
 
-{!! Html::script('js/select2.min.js') !!}  <!-- tag要引用的js -->
-<script src="//select2.github.io/select2/select2-3.4.2/select2.js"></script>   
-<script src="jquery.js"></script>
-<script src="parsley.min.js"></script>  <!-- 驗證資料要引用的CSS -->
+<script src="{{asset('js/parsley.min.js')}}"></script> <!-- 驗證資料要引用的CSS -->
+<script src="{{asset('js/select2.min.js')}}"></script> <!-- tag要引用的js -->
+ <!-- End of Scripts -->
 
-@endsection <!-- End of Scripts -->
+@endsection
 

@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ptoducts', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->increments('id')->comment('產品id');
             $table->string('name')->comment('產品名稱');
             $table->integer('category_id')->comment('產品_類別_id')->unsigned();
@@ -38,6 +38,6 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropForeign(['category_id']);
-        Schema::dropIfExists('ptoducts');
+        Schema::dropIfExists('products');
     }
 }
