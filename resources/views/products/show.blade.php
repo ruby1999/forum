@@ -9,6 +9,10 @@
         <h1>{{ $product->name}}</h1>
         <p class="lead">{!!$product->introduction !!}</p>
 
+        @if(!empty($product->image))
+        <img src="{{asset('asset/images/' . $product->image)}}" class="img-fluid" alt="Responsive image" />
+        @endif
+
         <div class="tags">
             @foreach ($product->tags as $tag)
                 <span class="badge badge-info">{{ $tag->name }}</span>

@@ -16,6 +16,7 @@ Route::group(['middleware' => 'web'], function () {
     
     Route::get('/', 'HomePageController@getHomePage');
     Route::get('home', 'HomePageController@getHomePage');
+    Route::get('productList', 'HomePageController@getProductList');
 
     //管理貼文(增刪改查)
     Route::resource('products','ProductController');

@@ -12,7 +12,13 @@
     <link rel="Shortcut Icon" type="image/x-icon" href="asset/images/favicon.ico" />
     <link rel="fluid-icon" href="asset/images/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+    </style>
+
+    <link href="//fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
 
     <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>
    

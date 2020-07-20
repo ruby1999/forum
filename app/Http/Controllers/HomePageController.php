@@ -10,4 +10,10 @@ class HomePageController extends Controller
     {
         return view('home.home');
     }
+
+    //測試用，借放一下看，看顯示productList的顯示
+    public function getProductList()
+    {
+        return view('products.list');
+    }
 }

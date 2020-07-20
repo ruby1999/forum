@@ -28,6 +28,17 @@ class ProductController extends Controller
         return view('products.index')->withProducts($products);
     }
 
+    //顯示前端所有產品的頁面 
+    public function showList()
+    {
+        $products = Product::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('products.index')->withProducts($products);
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -68,7 +79,7 @@ class ProductController extends Controller
             $image = $request->file('featured_img');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('asset/images/' . $filename);
-            Image::make($image)->resize(800, 400)->save($location);
+            Image::make($image)->resize(500, 500)->save($location);
   
             $product->image = $filename;
           }
@@ -85,6 +96,8 @@ class ProductController extends Controller
 
     }
 
+
+    //顯示後端單一產品頁面
     public function show($id)
     {
         $product = Product::find($id);
@@ -161,7 +174,7 @@ class ProductController extends Controller
             $image = $request->file('featured_img');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
-            Image::make($image)->resize(800, 400)->save($location);
+            Image::make($image)->resize(500, 500)->save($location);
             $oldFileName = $product->image;
 
             //update the database
