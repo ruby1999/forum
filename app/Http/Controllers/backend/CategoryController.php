@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
         Session::flash('success', '類別建立成功');
 
-        return redirect()->route('backend.categories.index');
+        return redirect()->route('categories.index');
     }
 
     public function show($id)
@@ -71,7 +71,7 @@ class CategoryController extends Controller
         Session::flash('success', '商品修改成功');
 
         // redirect with flash data to products.show
-        return redirect()->route('backend.categories.index', $category->id);
+        return redirect()->route('categories.index', $category->id);
 
     }
 
@@ -82,6 +82,6 @@ class CategoryController extends Controller
         $category->delete();
 
         Session::flash('success', '商品刪除成功');
-        return redirect()->route('backend.categories.index');
+        return redirect()->route('categories.index');
     }
 }

@@ -51,7 +51,7 @@
             <!--end of drop down-->
 
             <!--drop down start-->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown @yield('nav_post')">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">貼文管理</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">撰寫貼文</a>
