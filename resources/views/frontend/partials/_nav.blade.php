@@ -21,18 +21,11 @@
 
             <ul class="navbar-nav ml-auto">
             <!--Nav Bar-->
-            <li class="nav-item active">
+            <li class="nav-item @yield('nav_home')">
                 <a class="nav-link" href="/home">主頁
                 <span class="sr-only">(current)</span>
                 </a>
             </li> 
-
-            <li class="nav-item active">
-                <a class="nav-link" href="products/create">建立新產品
-                <span class="sr-only"></span>
-                </a>
-            </li> 
-
             <!--drop down start-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">最新消息</a>
@@ -43,32 +36,6 @@
                 </div>
             </li>
             <!--end of drop down-->
-
-
-            <!--失敗的三層 NAV BAR
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">所有產品
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">飲品</a></li>
-                    <li><a tabindex="-1" href="#">CSS</a></li>
-                    <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="#">甜點 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="#">戚風蛋糕</a></li>
-                        <li><a tabindex="-1" href="#">鏡面蛋糕</a></li>
-                        <li><a tabindex="-1" href="#">乳酪蛋糕</a></li>
-                        <li class="dropdown-submenu">
-                            <a class="test" href="#">Another dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                            <li><a href="#">3rd level dropdown</a></li>
-                            <li><a href="#">3rd level dropdown</a></li>
-                            </ul>
-                        </li>
-                        </ul>
-                    </li>
-                </ul>
-                </div>-->
            
             <!--drop down start-->
             <li class="nav-item dropdown">
@@ -110,6 +77,11 @@
             
             <a href="about.html" class="filled-button " style="height: max-content;  margin-top: 10px;">登入或註冊</a>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="/backend">切換到後台
+                <span class="sr-only"></span>
+                </a>
+            </li>
 
             <!--Nav Bar-->
             </ul>

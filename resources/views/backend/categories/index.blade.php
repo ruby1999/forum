@@ -1,12 +1,12 @@
 @extends('backend.main')
-
+@section('nav_product', 'active') <!--設定nav顯示active-->
 @section('title', '類別管理')
 
 @section('content')
 
 	<div class="row"  style="padding-top: 30px" >
-		<div class="col-md-2" ></div>
-		<div class="col-md-5">
+		<div class="col-md-3" ></div>
+		<div class="col-md-4">
 			<h1>類別</h1>
 			<table class="table">
 				<thead>
@@ -40,12 +40,12 @@
 			</table>
 		</div> <!-- end of .col-md-8 -->
 
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="well">
 					<h2>建立新類別</h2>
 					{!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
 					{{ Form::text('name', null, ['class' => 'form-control']) }}
-					{{ Form::submit('新增類別', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) }}
+					{{ Form::submit('新增類別', ['class' => 'btn btn-success btn-block btn-h1-spacing']) }}
 				
 				{!! Form::close() !!}
 			</div>

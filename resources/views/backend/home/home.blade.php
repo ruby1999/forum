@@ -1,6 +1,7 @@
-  @extends('frontend.main')
+  @extends('backend.main')
   @section('title', '主頁')
-  @section('nav_home', 'active');
+  @section('nav_home', 'active') <!--設定nav顯示active-->
+
   @section('content') <!-- Content Start-->
     <div class="latest-products">
       <div class="container">

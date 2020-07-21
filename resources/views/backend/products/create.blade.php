@@ -1,5 +1,7 @@
 @extends('backend.main')
 @section('title', '上架產品')
+@section('nav_product', 'active') <!--設定nav顯示active-->
+
 
 @section('stylesheet') 
     {!! Html::style('css/parsley.css') !!}      <!-- 驗證資料要引用的CSS -->

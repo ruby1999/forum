@@ -1,5 +1,7 @@
 @extends('backend.main')
 @section('title', '所有產品列表')
+@section('nav_product', 'active') <!--設定nav顯示active-->
+
 @section('content')
     <div class="row" style="padding-top:30px">   
         <div class="col-md-2">
