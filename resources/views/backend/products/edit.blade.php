@@ -1,4 +1,4 @@
-@extends('main')
+@extends('backend.main')
 
 @section('title', '| 編輯產品內容')
 
@@ -43,7 +43,7 @@
 			
 			<!-- 圖片-->
 			@if(!empty($product->image))
-				<img src="{{asset('asset/images/' . $product->image)}}" width="400" height="400" />
+				<img src="{{asset('asset/images/' . $product->image)}}" width="500" height="500" />
 			@endif
 			
 			<hr>

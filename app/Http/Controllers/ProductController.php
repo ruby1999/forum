@@ -25,7 +25,7 @@ class ProductController extends Controller
         //return a view and pass in the above variable
         //自動分頁的方法
         $products = Product::orderBy('id', 'asc')->paginate(5);
-        return view('products.index')->withProducts($products);
+        return view('backend.products.index')->withProducts($products);
     }
 
     //顯示前端所有產品的頁面 
@@ -38,14 +38,14 @@ class ProductController extends Controller
         //return a view and pass in the above variable
         //自動分頁的方法
         $products = Product::orderBy('id', 'asc')->paginate(5);
-        return view('products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
     }
 
     public function create()
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('products.create')->withProducts($categories)->withCategories($categories)->withTags($tags);
+        return view('backend.products.create')->withProducts($categories)->withCategories($categories)->withTags($tags);
     }
 
     public function store(Request $request)
@@ -103,7 +103,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('products.show')->withProduct($product);
+        return view('backend.products.show')->withProduct($product);
     }
 
     public function edit($id)
@@ -127,7 +127,7 @@ class ProductController extends Controller
             $tags2[$tag->id] = $tag->name;
         }
         // return the view and pass in the var we previously created
-        return view('products.edit')->withProduct($product)->withCategories($cats)->withTags($tags2);
+        return view('backend.products.edit')->withProduct($product)->withCategories($cats)->withTags($tags2);
     }
 
     public function update(Request $request, $id)
@@ -139,8 +139,8 @@ class ProductController extends Controller
             $this->validate($request, array(
                 'name'          => 'required|max:255',
                 'category_id'   => 'required|integer', //保護傳入非整數的數值
-                'introduction'  => 'required|max:500',
-                'description'   => 'required|max:500',
+                'introduction'  => 'required|max:1000',
+                'description'   => 'required|max:1000',
                 'price'         => 'required|integer',
                 'featured_img'  => 'image'
                 //驗證是否為照片
@@ -150,8 +150,8 @@ class ProductController extends Controller
                 'name'          => 'required|max:255',
                 'category_id'   => 'required|integer', //保護傳入非整數的數值
                 'slug'          => 'required|alpha_dash|min:5|max:255|unique:products,slug',
-                'introduction'  => 'required|min:20|max:500',
-                'description'   => 'required|min:20|max:500',
+                'introduction'  => 'required|min:20|max:1000',
+                'description'   => 'required|min:20|max:1000',
                 'price'         => 'required|integer',
                 'featured_img'  => 'image'
             ));
@@ -175,8 +175,11 @@ class ProductController extends Controller
             //add the new photo
             $image = $request->file('featured_img');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/' . $filename);
-            Image::make($image)->resize(500, 500)->save($location);
+            $location = public_path('asset/images/' . $filename);
+            Image::make($image)->resize(500, 500, function ($constraint){
+                // 等比例縮放：若兩個寬高比例與原圖不符的話，會以最短邊去做等比例縮放
+                $constraint->aspectRatio();
+            })->save($location);
             $oldFileName = $product->image;
 
             //update the database

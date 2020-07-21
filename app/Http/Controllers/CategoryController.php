@@ -16,7 +16,7 @@ class CategoryController extends Controller
         //it will also have a form to create a new categrocy
 
         $categories = Category::all();
-        return view('categories.index')->withCategories($categories);
+        return view('backend.categories.index')->withCategories($categories);
     }
 
     public function store(Request $request)
@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
         Session::flash('success', '類別建立成功');
 
-        return redirect()->route('categories.index');
+        return redirect()->route('backend.categories.index');
     }
 
     public function show($id)
@@ -46,7 +46,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         // return the view and pass in the var we previously created
-        return view('categories.index');
+        return view('backend.categories.index');
     }
 
     public function update(Request $request, $id)
@@ -71,7 +71,7 @@ class CategoryController extends Controller
         Session::flash('success', '商品修改成功');
 
         // redirect with flash data to products.show
-        return redirect()->route('categories.index', $category->id);
+        return redirect()->route('backend.categories.index', $category->id);
 
     }
 
@@ -82,6 +82,6 @@ class CategoryController extends Controller
         $category->delete();
 
         Session::flash('success', '商品刪除成功');
-        return redirect()->route('categories.index');
+        return redirect()->route('backend.categories.index');
     }
 }

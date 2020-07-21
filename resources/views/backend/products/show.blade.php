@@ -1,4 +1,4 @@
-@extends('main')
+@extends('backend.main')
 @section('title', '所有產品列表')
 
 @section('content')
@@ -32,7 +32,7 @@
                 <dd><a href="{{url('blog/'.$product->slug)}}"> {{url('blog/'.$product->slug)}}</a></dd>
             </dl>
             <dl class="dl-horizontal">
-                <dt>Category:</dt>
+                <dt>分類類別:</dt>
                 <p>{{ $product->category->name }}</p>
             </dl>
             <dl class="dl-horizontal">

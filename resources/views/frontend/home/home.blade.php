@@ -1,4 +1,4 @@
-  @extends('main')
+  @extends('frontend.main')
   @section('title', '主頁')
   @section('content') <!-- Content Start-->
     <div class="latest-products">

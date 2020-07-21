@@ -1,4 +1,4 @@
-@extends('main')
+@extends('backend.main')
 
 @section('title', '類別管理')
 

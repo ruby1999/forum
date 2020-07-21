@@ -1,4 +1,4 @@
-@extends('main')
+@extends('backend.main')
 @section('title', '上架產品')
 
 @section('stylesheet') 
@@ -18,7 +18,7 @@
 @endsection
 
 @section('content') <!-- Content Start-->
-<div class="container">
+<div class="container" style="padding-top: 30px">
     
         <h1>上架新產品</h1>
         <hr>

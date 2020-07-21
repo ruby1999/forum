@@ -1,4 +1,4 @@
-@extends('main')
+@extends('backend.main')
 @section('title', '所有產品列表')
 @section('content')
     <div class="row" style="padding-top:30px">   
@@ -53,8 +53,8 @@
                     @endforeach
                 </tbody>
             </table>   
-                    <div class="gl-pagination prepend-top-default">
-                        {!! $products->links() !!}
+                    <div class="pages text-center">
+                        {{ $products->links() }}
                     </div>
             </div>
     </div>

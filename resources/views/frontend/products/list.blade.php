@@ -1,4 +1,4 @@
-@extends('main')
+@extends('frontend.main')
 
 @section('title', '| 顯示所有產品') <!--前端顯示-->
 
