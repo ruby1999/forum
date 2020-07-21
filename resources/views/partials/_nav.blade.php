@@ -72,9 +72,9 @@
            
             <!--drop down start-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">所有產品</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/productList" role="button" aria-haspopup="true" aria-expanded="false">所有產品</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">飲品</a>
+                    <a class="dropdown-item" href="/productList">飲品</a>
                     <a class="dropdown-item" href="#">甜點</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">甜點1</a>

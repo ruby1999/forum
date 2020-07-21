@@ -18,6 +18,7 @@
         }
     </style>
 
+    <link href="{{asset('asset/css/frontend.css')}}" rel="stylesheet"> <!-- 引用字體 -->
     <link href="//fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet"> <!-- 引用字體 -->
 
     <script src="{{asset('asset/js/bootstrap.min.js')}}"></script>

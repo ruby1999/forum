@@ -14,9 +14,9 @@
         <hr>
     </div> <!-- end of row -->
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
             <table class="table">
                 <thead>
                     <th>#</th>
@@ -24,7 +24,7 @@
                     <th>產品類別</th>
                     <th>簡述</th>
                     <th>價錢</th>
-                    <th>建立時間</th>
+                    <th>標籤</th>
                     <th>更新時間</th>
                     <th>編輯</th>
                 </thead>
@@ -39,7 +39,13 @@
                         <td>{{ substr(strip_tags($product->introduction) ,0 , 50)}}{{ strlen(strip_tags($product->introduction)) > 50 ? "..." : ""}}</td>
                                                               <!--conditional ? if true : if flase -->
                         <td>{{ $product->price }}</td>
-                        <td>{{ date('Y/M/j  h:ia', strtotime($product->created_at)) }}</td>
+                        <td>
+                            <div class="tags">
+                                @foreach ($product->tags as $tag)
+                                    <span class="badge badge-info">{{ $tag->name }}</span>
+                                @endforeach
+                            </div>
+                        </td>
                         <td>{{ date('Y/M/j  h:ia', strtotime($product->updated_at)) }}</td>
                         <td>{!! Html::linkRoute('products.show', 'View', array($product->id),  array('class' => 'btn btn-secondary btn-block' )) !!}
                             {!! Html::linkRoute('products.edit', 'Edit', array($product->id),  array('class' => 'btn btn-secondary btn-block' )) !!}</td>
