@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id')->comment('貼文id');
             $table->text('title')->comment('貼文名稱');
             $table->integer('category_id')->comment('貼文_類別_id')->nullable()->unsigned();
+            $table->string('image')->nullable()->comment('貼文圖片');
             $table->longText('introduction')->nullable()->comment('簡述');
             $table->longText('description')->nullable()->comment('描述');
             $table->timestamp('created_at')->nullable()->comment('建立日期');

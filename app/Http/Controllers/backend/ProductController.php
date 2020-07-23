@@ -28,19 +28,6 @@ class ProductController extends Controller
         return view('backend.products.index')->withProducts($products);
     }
 
-    //顯示前端所有產品的頁面 
-    public function showList()
-    {
-        $products = Product::all();
-        $categories = Category::all();
-        $tags = Tag::all();
-
-        //return a view and pass in the above variable
-        //自動分頁的方法
-        $products = Product::orderBy('id', 'asc')->paginate(5);
-        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
-    }
-
     public function create()
     {
         $categories = Category::all();
@@ -81,10 +68,15 @@ class ProductController extends Controller
             $image = $request->file('featured_img');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('asset/images/' . $filename);
-            Image::make($image)->resize(500, 500)->save($location);
+            Image::make($image)->resize(500, 500, function ($constraint){ 
+                // 等比例縮放：若兩個寬高比例與原圖不符的話，會以最短邊去做等比例縮放
+                $constraint->aspectRatio();
+            })->save($location);
   
             $product->image = $filename;
           }
+
+          
 
         $product->save();
 

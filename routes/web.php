@@ -28,6 +28,16 @@ Route::group(['prefix'=>'products'], function(){
 	Route::delete('/{product}', ['uses' => 'backend\ProductController@destroy', 'as' => 'products.destroy']);
 });
 
+Route::group(['prefix'=>'posts'], function(){
+    Route::get('/', ['uses' => 'backend\PostController@index', 'as' => 'posts.index']);
+    Route::get('/create', ['uses' => 'backend\PostController@create', 'as' => 'posts.create']);
+    Route::get('/{post}', ['uses' => 'backend\PostController@show', 'as' => 'posts.show']);
+    Route::post('', ['uses' => 'backend\PostController@store', 'as' => 'posts.store']);
+	Route::get('/{post}/edit', ['uses' => 'backend\PostController@edit', 'as' => 'posts.edit']);
+	Route::put('/{post}', ['uses' => 'backend\PostController@update', 'as' => 'posts.update']);
+	Route::delete('/{post}', ['uses' => 'backend\PostController@destroy', 'as' => 'posts.destroy']);
+});
+
 
 Route::group(['middleware' => 'web'], function () {
     
@@ -41,7 +51,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('home', 'frontend\HomePageController@getHomePage');
     Route::get('productList', 'frontend\ProductController@showList');
 
+    //Route::resource('posts','backend\PostController');
 
+
+});
+Route::get('test', function () {
+    return App\Product::paginate(5);
 });
 
 //後端產品管理 Route::resource('products','ProductController');

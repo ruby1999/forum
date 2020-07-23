@@ -28,7 +28,7 @@
                     <th>價錢</th>
                     <th>標籤</th>
                     <th>更新時間</th>
-                    <th>編輯</th>
+                    <th colspan="2">編輯</th>
                 </thead>
 
                 <tbody>

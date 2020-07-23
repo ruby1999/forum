@@ -1,5 +1,5 @@
 @extends('backend.main')
-@section('title', '上架產品')
+@section('title', '建立新貼文')
 @section('nav_post', 'active') <!--設定nav顯示active-->
 
 @section('stylesheet') 
@@ -26,13 +26,10 @@
         {!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true]) !!}  
         <!-- 'files' => true 可以傳輸檔案(照片) 如果是用html參數的話要加入enctype="multipart/form-data"-->
 
-            {{Form::label('name','產品名稱:')}}
-            {{Form::text('name', null, array('class' => 'form-control', 'required'=>'', 'maxlength'=>'255'))}}
+            {{Form::label('title','貼文標題:')}}
+            {{Form::text('title', null, array('class' => 'form-control', 'required'=>'', 'maxlength'=>'255'))}}
 
-            {{Form::label('slug','產品英文名稱:')}}
-            {{Form::text('slug', null, array('class' => 'form-control', 'required'=>'', 'minlength'=>'5', 'maxlength'=>'255'))}}
-
-            {{ Form::label('category_id', '產品類別:') }}
+            {{ Form::label('category_id', '選擇貼文類型:') }}
             <select class="form-control" name="category_id">
                 @foreach($categories as $category)
                     <option value='{{ $category->id }}'>{{ $category->name }}</option>
@@ -40,16 +37,7 @@
 
             </select>
 
-            {{ Form::label('tags', '標籤:') }}
-            <select class="form-control select2-multi" name="tags[]" multiple="multiple" id="select2">
-                @foreach($tags as $tag)
-                    <option value='{{ $tag->id }}'>{{ $tag->name }}</option>
-                @endforeach
-            </select>
-            
-            <hr>
-
-            {{ Form::label('featured_img', '請上傳產品圖片') }}
+            {{ Form::label('featured_img', '上傳貼文圖片') }}
             {{ Form::file('featured_img') }}
 
             <hr>
@@ -60,10 +48,7 @@
             {{Form::label('description','詳細產品介紹:')}}
             {{Form::textarea('description', null, array('class' => 'form-control'))}}
 
-            {{Form::label('price','價錢:')}}
-            {{Form::text('price', null, array('class' => 'form-control'))}}
-
-            {{Form::submit('新增產品', array('class' => 'btn btn-success btn-lg btn-block' , 'style' => 'margin-top:20px '))}}
+            {{Form::submit('發布貼文產品', array('class' => 'btn btn-success btn-lg btn-block' , 'style' => 'margin-top:20px '))}}
             <hr>
 
         {!! Form::close() !!}

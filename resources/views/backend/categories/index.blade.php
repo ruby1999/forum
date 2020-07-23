@@ -13,7 +13,7 @@
 					<tr>
 						<th>#</th>
 						<th>類別名稱</th>
-						<th>編輯</th>
+						<th colspan="2" style="text-align:center">編輯</th>
 					</tr>
 				</thead>
 
@@ -25,12 +25,12 @@
 						<td>{{ Form::text('name', null, ['class' => 'form-control']) }}</td>
 						<td>
 							{!! Form::open(['route' => ['categories.update', $category->id], 'method'=>'GET']) !!}
-							{!! Form::submit('Edit',  ['class' => 'btn btn-primary btn-block']) !!}
+							{!! Form::submit('更新',  ['class' => 'btn btn-primary btn-block']) !!}
 							{!! Form::close() !!}
 						</td>
 						<td>
 							{!! Form::open(['route' => ['categories.destroy', $category->id], 'method'=>'DELETE']) !!}
-							{!! Form::submit('Delect',  ['class' => 'btn btn-danger btn-block']) !!}
+							{!! Form::submit('刪除',  ['class' => 'btn btn-danger btn-block']) !!}
 							{!! Form::close() !!}
 						</td>
 

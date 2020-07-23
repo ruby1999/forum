@@ -20,7 +20,7 @@
             <li class="nav-item dropdown @yield('nav_product')">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">產品管理</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/productList">檢視所有產品</a>
+                    <a class="dropdown-item" href="/products">檢視所有產品</a>
                     <a class="dropdown-item" href="/products/create">新增產品</a>
                     <a class="dropdown-item" href="/categories">類別管理</a>
                     <a class="dropdown-item" href="/tags">標籤管理</a>
@@ -54,8 +54,8 @@
             <li class="nav-item dropdown @yield('nav_post')">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">貼文管理</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">撰寫貼文</a>
-                    <a class="dropdown-item" href="tags">標籤管理</a>
+                    <a class="dropdown-item" href="/posts">檢視所有產品</a>
+                    <a class="dropdown-item" href="/posts/create">撰寫貼文</a>
                     <a class="dropdown-item" href="#">設定貼文曝光</a>
                 </div>
             </li>
