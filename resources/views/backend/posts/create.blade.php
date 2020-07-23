@@ -11,6 +11,7 @@
     <script>
         tinymce.init({
             selector: 'textarea',  // change this value according to your HTML
+            content_css : 'mycontent.css' , // resolved to http://domain.mine/mysite/mycontent.css
             plugins: 'advlist link image lists code',
             menubar: false
         });

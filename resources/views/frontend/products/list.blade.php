@@ -1,6 +1,7 @@
 @extends('frontend.main')
 
 @section('title', '| 顯示所有產品') <!--前端顯示-->
+@section('nav_product', 'active') <!--設定nav顯示active-->
 
 @section('content')
 

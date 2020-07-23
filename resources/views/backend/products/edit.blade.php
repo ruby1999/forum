@@ -14,6 +14,8 @@
         tinymce.init({
             selector: 'textarea',  // change this value according to your HTML
             plugins: 'advlist link image lists code',
+			content_css : 'mycontent.css' , // resolved to http://domain.mine/mysite/mycontent.css
+			language:'zh_TW',
             menubar: false
         });
     </script>

@@ -52,6 +52,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('productList', 'frontend\ProductController@showList');
 
     //Route::resource('posts','backend\PostController');
+    //前端貼文顯示路徑
+    //Route::get('allPost', 'frontend\PostController@AllPost');
+    Route::get('/allPost', ['uses' => 'frontend\PostController@AllPost', 'as' => 'posts.list']);
+    Route::get('/allPost/{product}', ['uses' => 'frontend\PostController@show', 'as' => 'posts.show']);
+
 
 
 });
