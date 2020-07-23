@@ -30,9 +30,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">最新消息</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">所有消息</a>
-                    <a class="dropdown-item" href="#">優惠活動</a>
-                    <a class="dropdown-item" href="#">今日供應</a>
+                    <a class="dropdown-item" href="/allPost">所有消息</a>
+                    <a class="dropdown-item" href="/dailyPost">日常消息</a>
+                    <a class="dropdown-item" href="/salePost">優惠消息</a>
                 </div>
             </li>
             <!--end of drop down-->

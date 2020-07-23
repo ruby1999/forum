@@ -9,7 +9,7 @@
     <div class="container">
             <div class="col-md-12">
                 <div class="section-heading" style=" padding-top: 30px;">
-                    <h2>所有貼文</h2>
+                    <h2>優惠消息</h2>
                 </div>
             </div>
 
