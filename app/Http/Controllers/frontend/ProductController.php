@@ -29,4 +29,62 @@ class ProductController extends Controller
         return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
     }
 
+    public function drink()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+    }
+
+    public function tart()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+    }
+
+    public function cheeseCake()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+    }
+
+    public function chiffon()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+    }
+    public function mirrorMousse()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        //return a view and pass in the above variable
+        //自動分頁的方法
+        $products = Product::orderBy('id', 'asc')->paginate(5);
+        return view('frontend.products.list')->withProducts($products)->withCategories($categories)->withTags($tags);
+    }
 }

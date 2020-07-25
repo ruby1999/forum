@@ -39,16 +39,15 @@
            
             <!--drop down start-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/productList" role="button" aria-haspopup="true" aria-expanded="false">所有產品</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/productList" role="button" aria-haspopup="true" aria-expanded="false">手作甜點</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/productList">飲品</a>
-                    <a class="dropdown-item" href="#">甜點</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">甜點1</a>
-                            <a class="dropdown-item" href="#">甜點2</a>
-                            <a class="dropdown-item" href="#">甜點3</a>
-                        </div>
-                    <a class="dropdown-item" href="#">鹹食</a>
+                    <a class="dropdown-item" href="/productList">所有產品</a>
+                    <a class="dropdown-item" href="#">飲品</a>
+                    <a class="dropdown-item" href="#">甜塔</a>
+                    <a class="dropdown-item" href="#">重乳酪</a>
+                    <a class="dropdown-item" href="#">戚風</a>
+                    <a class="dropdown-item" href="#">鏡面</a>
+                    <a class="dropdown-item" href="#">假日限定</a>
                 </div>
             </li>
             <!--end of drop down-->

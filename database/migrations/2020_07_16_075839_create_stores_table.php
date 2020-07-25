@@ -22,7 +22,6 @@ class CreateStoresTable extends Migration
             $table->longText('description')->nullable()->comment('店鋪描述');
             $table->text('address')->nullable()->comment('店鋪地址');
             $table->text('tel')->comment('店鋪電話');
-            $table->string('image')->nullable()->comment('店鋪圖片');
             $table->string('store_IG')->nullable()->comment('店鋪IG');
             $table->string('store_FB')->nullable()->comment('店鋪FB');
             $table->time('open_time')->nullable()->comment('開店時間');

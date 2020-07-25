@@ -54,11 +54,11 @@ Route::group(['middleware' => 'web'], function () {
     //Route::resource('posts','backend\PostController');
     //前端貼文顯示路徑
     //Route::get('allPost', 'frontend\PostController@AllPost');
-    Route::get('/allPost', ['uses' => 'frontend\PostController@AllPost', 'as' => 'posts.list']);
-    Route::get('/dailyPost', ['uses' => 'frontend\PostController@DailyPost', 'as' => 'posts.list']);
-    Route::get('/salePost', ['uses' => 'frontend\PostController@SalePost', 'as' => 'posts.list']);
+    Route::get('/allPost', ['uses' => 'frontend\PostController@AllPost', 'as' => 'posts.list']);            //所有消息
+    Route::get('/dailyPost', ['uses' => 'frontend\PostController@DailyPost', 'as' => 'posts.list']);        //日常消息
+    Route::get('/salePost', ['uses' => 'frontend\PostController@SalePost', 'as' => 'posts.list']);          //優惠消息
 
-    Route::get('/allPost/{product}', ['uses' => 'frontend\PostController@show', 'as' => 'posts.show']);
+    Route::get('/allPost/{product}', ['uses' => 'frontend\PostController@show', 'as' => 'posts.show']);     //檢視詳細貼文(應該會拿掉)
 
 
 

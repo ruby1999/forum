@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('name')->comment('產品名稱');
             $table->integer('category_id')->comment('產品_類別_id')->unsigned();
             $table->string('slug')->unique()->comment('產品slug');
-            $table->string('tag')->unique()->nullable()->comment('產品標籤');
             $table->longText('introduction')->nullable()->comment('簡述');
             $table->longText('description')->nullable()->comment('描述');
             $table->integer('price')->comment('產品價錢');;

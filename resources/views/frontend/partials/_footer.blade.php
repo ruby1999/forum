@@ -5,7 +5,7 @@
             <div class="inner-content">
             <p>Copyright &copy; 2020 Wooly Company
             
-            - Design: <a rel="nofollow noopener" href="{{asset('https://templatemo.com')}}" target="_blank">Ruby</a></p>
+            - Design: <a rel="nofollow noopener" href="{{asset('https://github.com/ruby1999/forum')}}" target="_blank">Ruby</a></p>
             </div>
         </div>
         </div>

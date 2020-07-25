@@ -10,4 +10,9 @@ class Store extends Model
     {
     	return $this->belongsToMany('App\Tags');
     }
+
+    public function StoreMedia()
+    {
+    	return $this->hasMany('App\StoreMedia');
+    }
 }
