@@ -36,8 +36,6 @@ class CreateStoreTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['tag_id']);
-        Schema::dropForeign(['store_id']);
-        Schema::dropIfExists('tag_store');
+        Schema::dropIfExists('store_tag');
     }
 }

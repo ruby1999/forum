@@ -13,16 +13,16 @@ class CreateStoreMediaTable extends Migration
      */
     public function up()
     {
-        Schema::table('store_media', function (Blueprint $table) {
+        Schema::create('store_media', function (Blueprint $table) {
             $table->increments('id')->comment('store_media_id');
-            $table->string('store_id')->comment('店鋪id')->unsigned();
-            $table->string('image')->nullable()->comment('圖片');
+            $table->integer('store_id')->comment('店鋪id')->unsigned();
+            $table->string('image')->comment('店鋪圖片');
             $table->timestamp('created_at')->nullable()->comment('建立日期');
             $table->timestamp('updated_at')->nullable()->comment('更新日期');
 
             $table->index('store_id');
 
-            $table->foreign('store_id')->references('store')->on('id');
+            $table->foreign('store_id')->references('id')->on('stores');
         });
     }
 
@@ -33,8 +33,6 @@ class CreateStoreMediaTable extends Migration
      */
     public function down()
     {
-        Schema::table('store_media', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('store_media');
     }
 }

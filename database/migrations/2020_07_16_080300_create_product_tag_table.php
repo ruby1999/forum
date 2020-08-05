@@ -35,8 +35,6 @@ class CreateProductTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['tag_id']);
-        Schema::dropForeign(['product_id']);
-        Schema::dropIfExists('tag_product');
+        Schema::dropIfExists('product_tag');
     }
 }

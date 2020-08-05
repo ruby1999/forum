@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon; //引用建立create_at
 
-class PostableSeed extends Seeder
+class PostTableSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -38,7 +40,10 @@ class PostableSeed extends Seeder
             有看到它在架上就別猶豫了
             不是每個地方都吃的到啊！！
             「無花果紅玉戚風」
-            今天有切片販售～'
+            今天有切片販售～',
+        
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()  
         ]);
 
         DB::table('posts')->insert([
@@ -68,7 +73,10 @@ class PostableSeed extends Seeder
             極力推薦給需要慶生蛋糕的朋友們
             這麼獨特的口味
             讓壽星驚艷一下許的願望都成真～
-            荔枝盛產季節，歡迎整模預訂喔'
+            荔枝盛產季節，歡迎整模預訂喔',
+        
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()  
         ]);
 
         DB::table('posts')->insert([
@@ -82,7 +90,10 @@ class PostableSeed extends Seeder
 
             'description' => '放暑假了! 七月份限定優惠
             蛋糕搭配飲品折價20元
-            快揪朋友一起來吃甜甜吧'
+            快揪朋友一起來吃甜甜吧',
+        
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()  
         ]);
 
         DB::table('posts')->insert([
@@ -114,7 +125,10 @@ class PostableSeed extends Seeder
             與不同食材風味搭配測試
             推出了一款生乳慕斯及一款戚風給大家選
             每次都推兩款真是燒光不少腦細胞
-            不過沒關係我們就是那麼誠意十足的甜點狂人！'
+            不過沒關係我們就是那麼誠意十足的甜點狂人！',
+        
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()  
         ]);
 
     }
