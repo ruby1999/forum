@@ -20,8 +20,39 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
             <ul class="navbar-nav ml-auto">
+                
+                @foreach ($datas as $key => $item)
+                    @if (!isset($item->subCategories))
+                        <li class="nav-item @yield('nav_home')">
+                            <a class="nav-link" href="/backend">{{ $item->name }}
+                            <span class="sr-only">(current)</span>
+                            </a>
+                        </li> 
+                    @else
+                        <li class="nav-item dropdown @yield('nav_product')">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ $item->name }}</a>
+                            <div class="dropdown-menu">
+                                @foreach ($item->subCategories as $subItem)
+                                    <a class="dropdown-item" href="/allPost">{{ $subItem->name }}</a>
+                                    {{-- @if (!isset($subItem->childCategories))
+                                        <a class="nav-link" href="/backend">{{ $subItem->name }}
+                                    @else
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ $subItem->name }}</a>
+                                        <div class="dropdown-menu">
+                                            @foreach ($subItem->childCategories as $childItem)
+                                                <a class="dropdown-item" href="/products">{{ $childItem->name }}</a>
+                                            @endforeach
+                                        </div>
+                                    @endif --}}
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
+                @endforeach
+
+
             <!--Nav Bar-->
-            <li class="nav-item @yield('nav_home')">
+            {{-- <li class="nav-item @yield('nav_home')">
                 <a class="nav-link" href="/home">主頁
                 <span class="sr-only">(current)</span>
                 </a>
@@ -80,7 +111,7 @@
                 <a class="nav-link" href="/backend">切換到後台
                 <span class="sr-only"></span>
                 </a>
-            </li>
+            </li> --}}
 
             <!--Nav Bar-->
             </ul>

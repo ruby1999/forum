@@ -63,9 +63,14 @@ Route::group(['middleware' => 'web'], function () {
 
 
 });
-Route::get('test', function () {
-    return App\Product::paginate(5);
-});
+
+Route::get('admin/blade', 'backend\testController@index');
+Route::get('test', 'backend\testController@test');
+
+
+// Route::get('test', function () {
+//     return App\Product::paginate(5);
+// });
 
 //後端產品管理 Route::resource('products','ProductController');
 /*Route::get('products/', ['uses' => 'backend\ProductController@index', 'as' => 'products.index']);
