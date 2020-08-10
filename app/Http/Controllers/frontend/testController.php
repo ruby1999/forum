@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\frontend;
 
 use Illuminate\Http\Request;
 use App\Test;
@@ -10,7 +10,7 @@ use Session; //引用會話(提示新建貼文成功)
 class testController extends Controller
 {
     
-    public function test()
+    public function index()
     {
         $datas = DB::table('tests')->distinct()->where('categoryID', '=', 0)->get();
         foreach ($datas as $key => $row) {
@@ -20,13 +20,28 @@ class testController extends Controller
             }
         }
         // var_dump($datas);
-        // dd($datas);
         
-        return view('backend.master', ['datas' => $datas]);
+        
+        return view('frontend.partials._nav', ['datas' => $datas]);
 
         // dd($datas);
         // return view('frontend.partials._nav', ['datas' => $datas]);
         // return view('frontend.partials._nav')->withData($datas);
+    }
+
+    public function test()
+    {
+        $datas = DB::table('tests')->distinct()->where('categoryID', '=', 0)->get();
+        foreach ($datas as $key => $row) {
+            $datas[$key]->subCategories = DB::table('tests')->distinct()->where('categoryID', '=', $row->id)->get();
+            // dd($datas[$key]->subCategories);
+            foreach ($datas[$key]->subCategories as $k => $val) {
+                $datas[$key]->subCategories[$k]->childCategories = DB::table('tests')->distinct()->where('categoryID', '=', $val->id)->get();
+            }
+        }
+        dd($datas);
+        
+        return view('frontend.home.home', ['datas' => $datas]);
     }
 
 

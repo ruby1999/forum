@@ -59,13 +59,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/salePost', ['uses' => 'frontend\PostController@SalePost', 'as' => 'posts.list']);          //優惠消息
 
     Route::get('/allPost/{product}', ['uses' => 'frontend\PostController@show', 'as' => 'posts.show']);     //檢視詳細貼文(應該會拿掉)
-
-
-
+    
 });
 
-Route::get('admin/blade', 'backend\testController@index');
-Route::get('test', 'backend\testController@test');
+Route::get('admin/blade', 'backend\testController@test'); //顯示後台模板
+Route::get('test', 'frontend\testController@test');       //改爆前台menu
 
 
 // Route::get('test', function () {
