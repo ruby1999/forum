@@ -1,4 +1,4 @@
-@extends('backend.main')
+@extends('backend.master')
 
 @section('title', '| 編輯貼文')
 @section('nav_post', 'active') <!--設定nav顯示active-->
@@ -23,8 +23,8 @@
 @section('content')
 
 	<div class="row" style="padding-top: 30px">
-		<div class="col-md-2">
-		</div>
+		{{-- <div class="col-md-2">
+		</div> --}}
 		<div class="col-md-5">
             {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files'=> 'true']) !!}
 			{{ Form::label('title', '貼文標題:') }}

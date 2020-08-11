@@ -1,3 +1,8 @@
+SELECT categoryID FROM category WHERE categoryID = 1;
+SELECT p.* FROM pages p WHERE categoryID IN (SELECT categoryID FROM category WHERE categoryID = 1)
+
+ANS SELECT p.* FROM pages p WHERE categoryID IN (SELECT id FROM category WHERE categoryID = 1)
+
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
@@ -43,13 +48,14 @@ INSERT INTO `tests` (`id`, `name`, `categoryID`) VALUES
 (3, '菜單', 0),
 (4, '優惠活動', 1),
 (5, '日常消息', 1),
-(6, '飲料', 2),
-(7, '甜點', 2),
-(8, '冰茶', 3),
-(9, '調飲', 3),
-(10, '乳酪', 4),
-(11, '鏡面', 4),
-(12, '戚風', 4);
+(6, '飲料', 3),
+(7, '甜點', 3),
+(8, '冰茶', 6),
+(9, '調飲', 6),
+(10, '乳酪', 7),
+(11, '鏡面', 7),
+(12, '戚風', 7),
+(13, '聯絡我們', 0);
 
 --
 -- 已傾印資料表的索引

@@ -15,4 +15,11 @@ class Category extends Model
     {
     	return $this->hasMany('App\Post');
     }
+
+    //-----上面之前的------------
+
+    public function pages()
+    {
+    	return $this->hasMany('App\Page');
+    }
 }

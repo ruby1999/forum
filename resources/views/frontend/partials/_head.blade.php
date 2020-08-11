@@ -26,8 +26,6 @@
     <!--TemplateMo 546 Sixteen Clothing：https://templatemo.com/tm-546-sixteen-clothing-->
 
     <!-- Additional CSS Files -->
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     
@@ -43,13 +41,6 @@
     <title>風雨珈琲｜ @yield('title') </title> <!--Remember change here -->
     
     <!--add for three level dropdown-->
-    {{-- <link rel="stylesheet" href="{{asset('asset/css/semantic.min.css')}}">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-submenu@3.0.1/dist/css/bootstrap-submenu.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> --}}
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> --}}
-
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap-theme.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap-submenu.min.css')}}">

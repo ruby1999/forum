@@ -4,7 +4,7 @@
       <div class="nav-link">
         <div class="user-wrapper">
           <div class="profile-image">
-            <img src="{{ url('asset/images/faces/face8.jpg') }}" alt="profile image">
+            <img src="{{ url('assets/images/faces/face8.jpg') }}" alt="profile image">
           </div>
           <div class="text-wrapper">
             <p class="profile-name">Richard V.Welsh</p>
@@ -46,12 +46,12 @@
       </a>
     </li>
     <li class="nav-item {{ active_class(['basic-ui/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="" aria-controls="basic-ui">
+      <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
         <i class="menu-icon mdi mdi-dna"></i>
         <span class="menu-title">Basic UI Elements</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse " id="basic-ui">
+      <div class="collapse {{ show_class(['basic-ui/*']) }}" id="basic-ui">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item {{ active_class(['basic-ui/buttons']) }}">
             <a class="nav-link" href="{{ url('/basic-ui/buttons') }}">Buttons</a>
@@ -85,12 +85,12 @@
       </a>
     </li>
     <li class="nav-item {{ active_class(['user-pages/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#user-pages" aria-expanded="" aria-controls="user-pages">
+      <a class="nav-link" data-toggle="collapse" href="#user-pages" aria-expanded="{{ is_active_route(['user-pages/*']) }}" aria-controls="user-pages">
         <i class="menu-icon mdi mdi-lock-outline"></i>
         <span class="menu-title">User Pages</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse " id="user-pages">
+      <div class="collapse {{ show_class(['user-pages/*']) }}" id="user-pages">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item {{ active_class(['user-pages/login']) }}">
             <a class="nav-link" href="{{ url('/user-pages/login') }}">Login</a>

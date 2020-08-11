@@ -1,4 +1,4 @@
-@extends('backend.main')
+@extends('backend.master')
 @section('title', '建立新貼文')
 @section('nav_post', 'active') <!--設定nav顯示active-->
 

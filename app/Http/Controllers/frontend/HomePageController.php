@@ -11,12 +11,13 @@ class HomePageController extends Controller
     {
         $datas = DB::table('tests')->distinct()->where('categoryID', '=', 0)->get();
         foreach ($datas as $key => $row) {
+
             $datas[$key]->subCategories = DB::table('tests')->distinct()->where('categoryID', '=', $row->id)->get();
             foreach ($datas[$key]->subCategories as $k => $val) {
                 $datas[$key]->subCategories[$k]->childCategories = DB::table('tests')->distinct()->where('categoryID', '=', $val->id)->get();
             }
         }
-        
+        // dd($datas);
         return view('frontend.home.home', ['datas' => $datas]);
     }
 
