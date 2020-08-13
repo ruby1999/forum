@@ -12,11 +12,11 @@ class testController extends Controller
     
     public function test()
     {
-        $datas = DB::table('tests')->distinct()->where('categoryID', '=', 0)->get();
+        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
         foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('tests')->distinct()->where('categoryID', '=', $row->id)->get();
+            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
             foreach ($datas[$key]->subCategories as $k => $val) {
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('tests')->distinct()->where('categoryID', '=', $val->id)->get();
+                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
             }
         }
         // var_dump($datas);

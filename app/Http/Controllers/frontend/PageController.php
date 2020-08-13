@@ -23,60 +23,46 @@ class PageController extends Controller
 
         // --NAV_BAR--
         $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+        // dd($datas);
         foreach ($datas as $key => $row) {
             $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+            // dd($datas[$key]->subCategories);
             foreach ($datas[$key]->subCategories as $k => $val) {
                 $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
             }
+            // dd($datas);
         }
         return $datas;
     }
-    public function allPosts(){
-        $data = $this->menu();
-        
-
-        // SELECT p.* FROM pages p WHERE categoryID IN (SELECT id FROM category WHERE categoryID = 1)
-        $posts = DB::table('category')
-                     ->select('id')
-                     ->where('categoryID', '=', 1)
-                     ->get();
-                     
-        // dd($posts);
-        $select = DB::table('pages')
-        ->select('*')
-        ->whereIn('categoryID', array(4, 5))
-        ->get();
-
-
-        // foreach ($posts as $values) {
-        //     $values->id = DB::table('category')->select('id')->where('categoryID', '=', 1)->get();   
-        //     $select = DB::table('pages')
-        //     ->select('*')
-        //     ->whereIn('id', array(4, 5))
-        //     ->where($values)
-        //     ->get();
-        // }
-        dd($select);
-        
-        // $select = DB::table('pages')
-        //     ->select('*')
-        //     ->where($posts)
-        //     ->get();
-        
-        // dd($select);
-
-        // $users = DB::table('users')
-        //             ->whereIn('id', array(1, 2, 3))->get();
-
-
-
-        $categories = Category::all();
-        $posts = $posts->get();
-        
-        //return a view and pass in the above variable
-        return view('frontend.pages.posts', ['datas' => $data])->withPosts($posts)->withCategories($categories);
+    
+    public function id( $categoryID ){
+        $id = DB::table('category')
+                 ->select('id')
+                 ->where('categoryID', '=', $categoryID)
+                 ->get();
+        return $id;
     }
 
+    // 所有貼文
+    public function allPosts(){
+        $data = $this->menu();
+        $catID = $this->id('1'); //呼叫function id() 傳入父類別的ID(第一層分類)
+        $catID = json_decode($catID,false);
+        // VAR_DUMP($catID);
+        $id = array_column($catID, 'id');
+    
+        $select = DB::table('pages')
+        ->select('*')
+        ->whereIn('categoryID', $id);
+        // ->whereIn('categoryID', $catID);
+        
+        $categories = Category::all();
+        $posts = $select->get();
+        
+        return view('frontend.pages.posts', ['datas' => $data])->withPosts($posts)->withCategories($categories);
+    }
+    
+    // 日常貼文
     public function dailyPost(){
         $data = $this->menu();
         $posts = DB::table('pages')
@@ -84,28 +70,19 @@ class PageController extends Controller
                      ->where('categoryID', '=', 4);
         $categories = Category::all();
         $posts = $posts->get();
-        
-        //return a view and pass in the above variable
+
         return view('frontend.pages.posts', ['datas' => $data])->withPosts($posts)->withCategories($categories);
     }
 
+    // 日常貼文
     public function salePost(){
         $data = $this->menu();
         $posts = DB::table('pages')
-                     ->select(DB::raw('*'))
-                     ->where('categoryID', '=', 5);
+                        ->select(DB::raw('*'))
+                        ->where('categoryID', '=', 5);
         $categories = Category::all();
         $posts = $posts->get();
-        
-        // dd($posts);
-        //return a view and pass in the above variable
+
         return view('frontend.pages.posts', ['datas' => $data])->withPosts($posts)->withCategories($categories);
     }
-
-    // //顯示後端單一產品頁面
-    // public function show($id)
-    // {
-    //     $post = Post::find($id);
-    //     return view('frontend.posts.show')->withPost($post);
-    // }
 }
