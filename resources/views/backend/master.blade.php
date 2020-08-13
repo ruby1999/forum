@@ -40,7 +40,6 @@
   </div>
 
   <!-- base js -->
-  {!! Html::script('asset/js/app.js') !!}
   {!! Html::script('asset/plugins/perfect-scrollbar/perfect-scrollbar.min.js') !!}
   <!-- end base js -->
 
@@ -49,11 +48,13 @@
   <!-- end plugin js -->
 
   <!-- common js -->
+  {!! Html::script('asset/js/apps.js') !!}
   {!! Html::script('asset/js/off-canvas.js') !!}
   {!! Html::script('asset/js/hoverable-collapse.js') !!}
   {!! Html::script('asset/js/misc.js') !!}
   {!! Html::script('asset/js/settings.js') !!}
   {!! Html::script('asset/js/todolist.js') !!}
+
   <!-- end common js -->
 
   @stack('custom-scripts')
