@@ -9,11 +9,26 @@ class HomePageController extends Controller
 {
     public function menu(){
         $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+        // $a = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+        if($datas != []) {
+            $datas->subCategories = $datas;
+        }
         foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+            // $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+            $b = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+            
+            if($b != []) {
+                $datas[$key]->subCategories = $b;
+            }
+            
             foreach ($datas[$key]->subCategories as $k => $val) {
                 // $datas[$key]->subCategories[$k]->childCategories = DB::table('pages')->distinct()->where('categoryID', '=', $val->id)->get();
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+                // $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+                $c = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+                if (count($c) != 0) {
+                    $datas[$key]->subCategories[$k]->childCategories = $c;
+                }
+                
             }
         }
 
@@ -23,7 +38,7 @@ class HomePageController extends Controller
     public function getHomePage()
     {
         $datas = $this->menu();
-        // dd($datas);
+        dd($datas);
         return view('frontend.home.home', ['datas' => $datas]);
     }
 

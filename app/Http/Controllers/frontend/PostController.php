@@ -17,73 +17,66 @@ use DB;
 class PostController extends Controller
 {
 
-    public $datas = [];
+    // public $datas = [];
 
-    public function AllPost()
-    {
+    // public function AllPost()
+    // {
 
-        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
-        foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
-            foreach ($datas[$key]->subCategories as $k => $val) {
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
-            }
-        }
 
-        $posts = Post::all();
-        $categories = Category::all();
+    //     $posts = Post::all();
+    //     $categories = Category::all();
 
-        //return a view and pass in the above variable
-        $posts = Post::orderBy('id', 'asc')->paginate(5);
-        return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
-    }
+    //     //return a view and pass in the above variable
+    //     $posts = Post::orderBy('id', 'asc')->paginate(5);
+    //     return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
+    // }
 
-    public function DailyPost()
-    {
-        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
-        foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
-            foreach ($datas[$key]->subCategories as $k => $val) {
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
-            }
-        }
+    // public function DailyPost()
+    // {
+    //     $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+    //     foreach ($datas as $key => $row) {
+    //         $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+    //         foreach ($datas[$key]->subCategories as $k => $val) {
+    //             $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+    //         }
+    //     }
         
-        $posts = DB::table('posts')
-                     ->select(DB::raw('*'))
-                     ->where('category_id', '=', 1);
+    //     $posts = DB::table('posts')
+    //                  ->select(DB::raw('*'))
+    //                  ->where('category_id', '=', 1);
         
-        $categories = Category::all();
-        $posts = $posts->get();
+    //     $categories = Category::all();
+    //     $posts = $posts->get();
 
-        //return a view and pass in the above variable
-        return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
-    }
+    //     //return a view and pass in the above variable
+    //     return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
+    // }
 
-    public function SalePost()
-    {
-        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
-        foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
-            foreach ($datas[$key]->subCategories as $k => $val) {
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
-            }
-        }
+    // public function SalePost()
+    // {
+    //     $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+    //     foreach ($datas as $key => $row) {
+    //         $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+    //         foreach ($datas[$key]->subCategories as $k => $val) {
+    //             $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+    //         }
+    //     }
         
-        $posts = DB::table('posts')
-                     ->select(DB::raw('*'))
-                     ->where('category_id', '=', 2);
+    //     $posts = DB::table('posts')
+    //                  ->select(DB::raw('*'))
+    //                  ->where('category_id', '=', 2);
         
-        $categories = Category::all();
-        $posts = $posts->get();
+    //     $categories = Category::all();
+    //     $posts = $posts->get();
 
-        //return a view and pass in the above variable
-        return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
-    }
+    //     //return a view and pass in the above variable
+    //     return view('frontend.posts.list', ['datas' => $datas])->withPosts($posts)->withCategories($categories);
+    // }
 
     //顯示後端單一產品頁面
-    public function show($id)
-    {
-        $post = Post::find($id);
-        return view('frontend.posts.show')->withPost($post);
-    }
+    // public function show($id)
+    // {
+    //     $post = Post::find($id);
+    //     return view('frontend.posts.show')->withPost($post);
+    // }
 }

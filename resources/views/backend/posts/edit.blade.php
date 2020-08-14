@@ -21,64 +21,54 @@
 @endsection
 
 @section('content')
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+			<h3>編輯貼文</h3>
+			{!! Html::linkRoute('posts.index', '回到所有貼文', array(),  array('class' => 'btn btn-md btn-danger')) !!}
 
-	<div class="row" style="padding-top: 30px">
-		{{-- <div class="col-md-2">
-		</div> --}}
-		<div class="col-md-5">
-            {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files'=> 'true']) !!}
-			{{ Form::label('title', '貼文標題:') }}
-			{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
+			<div class="row" style="padding-top: 20px">
+				<div class="col-md-12">
+					{!! Form::open(['action' => ['backend\PostController@update']]) !!}
+					{{-- {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files'=> 'true']) !!} --}}
+					{{ Form::label('title', '貼文標題:') }}
+					{{ Form::text('title', ($post->title), ["class" => 'form-control input-lg']) }} 
 
-			{{ Form::label('category_id', "貼文類別:", ['class' => 'form-spacing-top']) }}
-			{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+					{{ Form::label('title', '建立時間:' )}}
+					{{ Form::label('created_at', ($post->created_at)) }} <p>
 
-			{{ Form::label('featured_img', '更新產品圖片', ['class' => 'form-spacing-top']) }}
-			{{ Form::file('featured_img') }}
-			
-			<!-- 圖片-->
-			@if(!empty($post->image))
-				<img src="{{asset('asset/images/' . $post->image)}}" class="img-fluid" alt="Responsive image" style=" .img-fluid. max-width: 100%;" />
-			@endif
-			
-			<hr>
+					{{ Form::label('title', '上次更新時間:') }}
+					{{ Form::label('updated_at', ($post->updated_at)) }} <p>
+					{{-- {{ date('Y/m/d  H:s', strtotime($post->updated_at)) }}<p> --}}
 
-			{{ Form::label('introduction', "簡述:", ['class' => 'form-spacing-top']) }}
-			{{ Form::textarea('introduction', null, ['class' => 'form-control']) }}
+					{{ Form::label('category_id', "貼文類別:", ['class' => 'form-spacing-top']) }}
+					{{ Form::select('category_id', $categories, null, ['class' => '']) }}<p>
 
-			{{ Form::label('description', "詳細產品介紹:", ['class' => 'form-spacing-top']) }}
-			{{ Form::textarea('description', null, ['class' => 'form-control']) }}
+					{{ Form::label('featured_img', '更新貼文圖片', ['class' => 'form-spacing-top']) }}
+					{{ Form::file('featured_img') }}<p>
+					
+					<!-- 圖片-->
+					@if(!empty($post->image))
+						<img src="{{asset('asset/images/' . $post->image)}}" class="img-fluid" alt="Responsive image" style=" .img-fluid. max-width: 100%;" />
+					@endif
+					<p>
+					<hr>
 
-		</div>
+					{{ Form::label('introduction', "簡述:", ['class' => 'form-spacing-top']) }}
+					{{ Form::textarea('introduction', $post->introduction, ['class' => 'form-control']) }}
 
-		<div class="col-md-3">
-			<div class="well">
-				<dl class="dl-horizontal">
-					<dt>建立時間:</dt>
-					<dd>{{ date('Y/m/j  H:s', strtotime($post->created_at)) }}</dd>
-				</dl>
+					{{ Form::label('description', "詳細貼文介紹:", ['class' => 'form-spacing-top']) }}
+					{{ Form::textarea('description', $post->description, ['class' => 'form-control']) }} <p>
 
-				<dl class="dl-horizontal">
-					<dt>上次更新時間:</dt>
-					<dd>{{ date('Y/m/j  H:s', strtotime($post->updated_at)) }}</dd>
-				</dl>
-				<hr>
-				<div class="row">
-					<div class="col-sm-6">
-                        <!--  button加上route導向 -->
-						{!! Html::linkRoute('posts.show', '取消修改產品', array($post->id), array('class' => 'btn btn-danger btn-block')) !!}
-					</div>
-					<div class="col-sm-6">
-                          <!-- 要用FORM提交-->
-						{{ Form::submit('儲存產品資料', ['class' => 'btn btn-success btn-block']) }}
-					</div>
 				</div>
+				{{-- {{ Form::submit('儲存產品資料', ['class' => 'btn btn-md btn-success']) }} --}}
+				{{ Form::submit('發布貼文', array('class' => 'btn btn-success btn-lg btn-block' , 'style' => 'margin-top:20px ')) }}
+				{!! Form::close() !!}
+			</div>	<!-- end of .row (form) -->
 
-			</div>
-		</div>
-		{!! Form::close() !!}
-	</div>	<!-- end of .row (form) -->
-
+	  	</div>
+	</div>
+</div>
 @stop
 
 

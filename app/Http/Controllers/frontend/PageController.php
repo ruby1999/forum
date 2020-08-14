@@ -65,6 +65,7 @@ class PageController extends Controller
     // 日常貼文
     public function dailyPost(){
         $data = $this->menu();
+        // 待補把ID2k7
         $posts = DB::table('pages')
                      ->select(DB::raw('*'))
                      ->where('categoryID', '=', 4);
@@ -74,7 +75,7 @@ class PageController extends Controller
         return view('frontend.pages.posts', ['datas' => $data])->withPosts($posts)->withCategories($categories);
     }
 
-    // 日常貼文
+    // 優惠貼文
     public function salePost(){
         $data = $this->menu();
         $posts = DB::table('pages')

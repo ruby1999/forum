@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\backend;
 
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Category; //引用Model
 use Session; //引用會話(提示新建貼文成功)
@@ -18,44 +15,54 @@ class PostController extends Controller
     {
         //Create a variable and store all the blog posts in it from the database
         $posts = Post::all();
-        $categories = Category::all();
+        $categories = Category;
         //return a view and pass in the above variable
         //自動分頁的方法
         $posts = Post::orderBy('id', 'asc')->paginate(5);
-        // $pages = DB::table('posts')->simplePaginate(5);
-        // dd($pages);
-        return view('backend.posts.index')->withPosts($posts)->withCategories($categories); // ->withPage($pages);
+        return view('backend.posts.index')->withPosts($posts)->withCategories($categories);
     }
 
     public function create()
     {
-        // 進入create頁面
-        $cateList = Category::all()->pluck('name', 'id');
-        // $categories = Category::list('id','name')->get(); //5.3以後被棄用
-        // $categories = json_decode($categories);
-        // dd($categories); 
-        $pages = DB::table('posts')->simplePaginate(15);
-        return view('backend.posts.create')->withCategories($cateList)->withPage($pages);
+        $categories = Category::all();
+        $categories =$categories->name;
+        return view('backend.posts.create')->withCategories($categories);
     }
 
     public function store(Request $request)
     {
+        //dd($request); //檢視存入的$request
+        //validate in the data(驗證要存入的資料，避免惡意攻擊)
+        $this->validate($request, array(
+            'title'          => 'required|max:255',
+            'category_id'   => 'required|integer', //保護傳入非整數的數值
+            'introduction'  => 'required|max:1000',
+            'description'   => 'required|max:1000'
+        ));
+
+        //store in the database(存入資料庫)
         $post = new Post; //要引用App\Post;
+
         $post->title = $request ->title;
         $post->category_id = $request ->category_id;
         $post->introduction = $request->introduction;
         $post->description = $request->description;
         
+        //加入圖片(如果有要存入圖片的話)
+        //$filename設定檔案名稱
+        //要儲存的位置，在最外面的那個public資料夾asset/images資料夾
+        //featured_img是controller裡面form設定的名稱
         if ($request->hasFile('featured_img')) {
             $image = $request->file('featured_img');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('asset/images/' . $filename);
             Image::make($image)->resize(500, 500, function ($constraint){
+                // 等比例縮放：若兩個寬高比例與原圖不符的話，會以最短邊去做等比例縮放
                 $constraint->aspectRatio();
             })->save($location);
   
             $post->image = $filename;
-        }
+          }
         
         $categories = Category::all();
         $post->save();
@@ -63,6 +70,7 @@ class PostController extends Controller
 
         Session::flash('success', '貼文新增成功！');
 
+        //redirect to another page(導向其他頁面)
         // return redirect()->route('posts.show', $post->id);
         return view('backend.posts.index')->withPosts($posts)->withCategories($categories);
     }
@@ -89,7 +97,6 @@ class PostController extends Controller
             $cats[$category->id] = $category->name;
         }
 
- 
         // return the view and pass in the var we previously created
         return view('backend.posts.edit')->withPost($post)->withCategories($cats);
     }
@@ -144,13 +151,8 @@ class PostController extends Controller
         // set flash data with success message
         Session::flash('success', '貼文更新成功');
 
-        $categories = Category::all();
-        $posts = Post::all();
-
         // redirect with flash data to posts.show
-        // return redirect()->route('posts.show', $post->id)->withData($str_introuction);
-        
-        return view('backend.posts.index')->withPosts($posts)->withCategories($categories);
+        return redirect()->route('posts.show', $post->id)->withData($str_introuction);
 
     }
 
