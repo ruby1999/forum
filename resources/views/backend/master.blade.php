@@ -31,6 +31,7 @@
     <div class="container-fluid page-body-wrapper">
       @include('backend.layout.sidebar')
       <div class="main-panel">
+        @include('backend/layout/messages')
         <div class="content-wrapper">
           @yield('content')
         </div>

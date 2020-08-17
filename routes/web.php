@@ -25,13 +25,16 @@
     // 貼文管理
     Route::get('/posts', ['uses' => 'backend\PostController@index', 'as' => 'posts.index']);    //後台貼文管理
     Route::get('posts/create', ['uses' => 'backend\PostController@create', 'as' => 'posts.create']);
-    Route::get('posts/{post}', ['uses' => 'backend\PostController@show', 'as' => 'posts.show']);
+    // Route::get('posts/{post}', ['uses' => 'backend\PostController@show', 'as' => 'posts.show']);
     Route::post('posts', ['uses' => 'backend\PostController@store', 'as' => 'posts.store']);
+
+    // index的button按下去走這支，對吧
     Route::get('posts/{post}/edit', ['uses' => 'backend\PostController@edit', 'as' => 'posts.edit']);
     Route::put('posts/{post}', ['uses' => 'backend\PostController@update', 'as' => 'posts.update']);
-    Route::delete('posts/{post}', ['uses' => 'backend\PostController@destroy', 'as' => 'posts.destroy']);
 
-
+    // index的button按下去走這支，對吧
+    Route::get('posts/{post}/destroy', ['uses' => 'backend\PostController@destroy', 'as' => 'posts.destroy']);
+    // 因為沒有用form所以只能用get
 
 
     //後端產品管理
@@ -42,7 +45,7 @@
         Route::post('', ['uses' => 'backend\ProductController@store', 'as' => 'products.store']);
         Route::get('/{product}/edit', ['uses' => 'backend\ProductController@edit', 'as' => 'products.edit']);
         Route::put('/{product}', ['uses' => 'backend\ProductController@update', 'as' => 'products.update']);
-        Route::delete('/{product}', ['uses' => 'backend\ProductController@destroy', 'as' => 'products.destroy']);
+        Route::delete('/{product}/destroy', ['uses' => 'backend\ProductController@destroy', 'as' => 'products.destroy']);
     });
 
     // Route::group(['prefix'=>'posts'], function(){
@@ -73,6 +76,7 @@
 
     Route::get('admin/blade', 'backend\testController@test'); //顯示後台模板
     Route::get('test', 'frontend\testController@test');       //改爆前台menu
+    Route::resource('photo', 'PhotoController');
 
 
     // Route::get('test', function () {

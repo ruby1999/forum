@@ -10,13 +10,16 @@ class HomePageController extends Controller
     public function menu(){
         $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
         // $a = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
-        if($datas != []) {
-            $datas->subCategories = $datas;
-        }
+        // dd($datas);
+        // if($datas->subCategories != []) {
+        //     dd($datas->subCategories);
+        //     $datas->subCategories = $datas;
+        // }
+
+        // dd($datas);
         foreach ($datas as $key => $row) {
             // $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
             $b = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
-            
             if($b != []) {
                 $datas[$key]->subCategories = $b;
             }
@@ -38,7 +41,6 @@ class HomePageController extends Controller
     public function getHomePage()
     {
         $datas = $this->menu();
-        dd($datas);
         return view('frontend.home.home', ['datas' => $datas]);
     }
 

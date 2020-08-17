@@ -38,7 +38,7 @@
           </table>
           
           <div class=container4 style="text-align:center" >
-            {!! $posts->links() !!}
+            {{-- {!! $posts->links() !!} --}}
           </div>
 
         </div>

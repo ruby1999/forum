@@ -29,8 +29,8 @@
 
 			<div class="row" style="padding-top: 20px">
 				<div class="col-md-12">
-					{!! Form::open(['action' => ['backend\PostController@update']]) !!}
-					{{-- {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files'=> 'true']) !!} --}}
+					{{-- {!! Form::open(['action' => ['backend\PostController@update'], $post->id]) !!} --}}
+					{!! Form::model($post, ['action' => ['backend\PostController@update', $post->id], 'method' => 'PUT']) !!}
 					{{ Form::label('title', '貼文標題:') }}
 					{{ Form::text('title', ($post->title), ["class" => 'form-control input-lg']) }} 
 
@@ -60,10 +60,12 @@
 					{{ Form::label('description', "詳細貼文介紹:", ['class' => 'form-spacing-top']) }}
 					{{ Form::textarea('description', $post->description, ['class' => 'form-control']) }} <p>
 
-				</div>
-				{{-- {{ Form::submit('儲存產品資料', ['class' => 'btn btn-md btn-success']) }} --}}
-				{{ Form::submit('發布貼文', array('class' => 'btn btn-success btn-lg btn-block' , 'style' => 'margin-top:20px ')) }}
+										{{-- {{ Form::submit('儲存產品資料', ['class' => 'btn btn-md btn-success']) }} --}}
+				{{ Form::submit('修改儲存', array('class' => 'btn btn-success btn-lg btn-block' , 'style' => 'margin-top:20px ')) }}
 				{!! Form::close() !!}
+
+				</div>
+
 			</div>	<!-- end of .row (form) -->
 
 	  	</div>
