@@ -34,6 +34,7 @@
                 {{ Form::text('title', null, array('class' => 'form-control', 'required'=>'', 'maxlength'=>'255')) }}
                 {{ Form::label('category_id', '選擇貼文類型:') }} <p>
                 {{ Form::select('category_id', $categories,['class'=>'form-control', 'style'=> 'width:100%'])}} <p>{{--在controller裡面加上pluck--}}
+                {{-- 一直無效 'class'=>'form-control' 氣死 --}}
                 {{-- 前面的''，就是controller 傳入的東西  $request ->category_id; --}}
                  
                 {{-- <select class="form-control" name="category_id">

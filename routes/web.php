@@ -22,20 +22,16 @@
     Route::get('/salePost', 'frontend\PageController@salePost');
     Route::get('/allPost', 'frontend\PageController@allPosts');
 
-    // 貼文管理
-    Route::get('/posts', ['uses' => 'backend\PostController@index', 'as' => 'posts.index']);    //後台貼文管理
+    // 貼文管理 舊的 以後當成頁面
+    Route::get('/posts', ['uses' => 'backend\PostController@index', 'as' => 'posts.index']);
     Route::get('posts/create', ['uses' => 'backend\PostController@create', 'as' => 'posts.create']);
-    // Route::get('posts/{post}', ['uses' => 'backend\PostController@show', 'as' => 'posts.show']);
     Route::post('posts', ['uses' => 'backend\PostController@store', 'as' => 'posts.store']);
-
-    // index的button按下去走這支，對吧
     Route::get('posts/{post}/edit', ['uses' => 'backend\PostController@edit', 'as' => 'posts.edit']);
     Route::put('posts/{post}', ['uses' => 'backend\PostController@update', 'as' => 'posts.update']);
-
-    // index的button按下去走這支，對吧
     Route::get('posts/{post}/destroy', ['uses' => 'backend\PostController@destroy', 'as' => 'posts.destroy']);
     // 因為沒有用form所以只能用get
 
+    Route::get('/pageCategory', ['uses' => 'backend\PageController@index', 'as' => 'page.Category']);
 
     //後端產品管理
     Route::group(['prefix'=>'products'], function(){

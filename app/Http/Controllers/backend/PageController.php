@@ -14,7 +14,34 @@ class PageController extends Controller
 {
     public function index()
     {
+        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
+        dd($datas);
+        // $data = json_decode($datas);
+        // $id = array_column($data, 'name');
+        // dd($id);
+        // foreach($data as $key => $value){
+        //     if(is_array($value)){
+        //     getValue($value);    
+        //     }else{
+        //     echo $value."<br>";
+        //     }
+        // }
+        // foreach ($datas as $key => $row) {
+        //     $b = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
+        //     if($b != []) {
+        //         $datas[$key]->subCategories = $b;
+        //     }
+            
+        //     foreach ($datas[$key]->subCategories as $k => $val) {
+        //         $c = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
+        //         if (count($c) != 0) {
+        //             $datas[$key]->subCategories[$k]->childCategories = $c;
+        //         }
+        //     }
+        // }
 
+        // var_dump($datas);
+        // return $datas;
+        return view('backend.page.index', compact('datas'));
     }
-
 }
