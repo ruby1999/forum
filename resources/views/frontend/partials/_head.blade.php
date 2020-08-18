@@ -8,9 +8,9 @@
 
     <!-- Bootstrap core CSS -->
     <!--字體跟標籤小icon都沒作用(我問天)-->
-    <link rel="icon" href="asset/images/favicon.ico" type="image/x-icon">
-    <link rel="Shortcut Icon" type="image/x-icon" href="asset/images/favicon.ico" />
-    <link rel="fluid-icon" href="asset/images/favicon.ico">
+    <link rel="icon" href="{{asset('asset//images/favicon.ico')}}" type="image/x-icon">
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{asset('asset//images/favicon.ico')}}" />
+    <link rel="fluid-icon" href="{{asset('asset//images/favicon.ico')}}">
 
     <style>
         body {

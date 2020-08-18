@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Star Admin Pro Laravel Dashboard Template</title>
+  <title>ForumCoffee｜Backend</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,7 @@
 
   <!-- common css -->
   {!! Html::style('asset/css/apps.css') !!}
+  <link rel="icon" href="{{asset('asset//images/favicon.ico')}}" type="image/x-icon">
   <!-- end common css -->
 
   @stack('style')

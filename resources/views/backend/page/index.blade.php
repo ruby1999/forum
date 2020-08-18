@@ -12,6 +12,9 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th class="checkbox_1" width="3%">
+                  {!! Form::checkbox('checkboxes[]', '0', false, ['class' => 'checkboxes', 'id' => 'checkAll']) !!}
+                </th>
                 <th> 分類名稱 </th>
                 <th> 自訂網址 </th>
                 <th> 下層分類 </th>
@@ -20,10 +23,21 @@
               
             </thead>
             <tbody>
-              {{dd($datas)}}
-                @foreach($datas as $data)
+              {{-- {{dd($datas)}} --}}
+              {{-- {{dd($cats)}} --}}
+                @foreach($cats as $cat)
+                {{-- {{var_dump($cat)}} --}}
                     <tr>
-                      <td> {{ $id}} </td>
+                      <td> {!! Form::checkbox('checkboxes[]', $cat->id, false, ['class' => 'checkboxes']) !!} </td>
+                      <td> {{ $cat->name }} </td>
+                      <td> {{ $cat->slug }} </td>
+
+                      <td> 
+                        <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button>
+                        <button type="button" class="btn btn-info btn-fw"><i class="mdi mdi-upload"></i>檢視</button>                
+                      </td>
+
+                      <td>  </td>
                       {{-- <td> {{ $post->title }} </td>
                       <td class="py-1"><img src={{asset('asset/images/' . $post->image)}} alt="image" class="img-thumbnail"/> </td>
                       <td style="width: 10%">{{ $post->category['name'] }}</td>
