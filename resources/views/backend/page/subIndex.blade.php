@@ -32,15 +32,14 @@
                       <td> {{ $data->id }} </td>
                       <td> {{ $data->name }} </td>
                       <td> {{ $data->slug }} </td> 
-                      {{-- {{ dd( $data->subCategories) }} --}}
                       <td>
-                        {{--{{ var_dump((json_decode($data->subCategories))) }} {{-- if is false 代表下層有資料 --}}
                         @if ((empty(json_decode($data->subCategories))) == false )
                             {!! Html::linkRoute('page.subIndex', '有下層分類', array($data->id),  array('class' => 'btn btn-primary btn-fwk' )) !!}   
                         @endif
                       </td>
                       <td> 
-                        <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button>
+                        {{-- <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button> --}}
+                        {!! Html::linkRoute('page.page', '編輯', array($data->id),  array('class' => 'btn btn-primary btn-fwk' )) !!}
                         <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button>                
                       </td>
                     }
@@ -78,6 +77,7 @@
           <div class=container4 style="text-align:center" >
             {{-- {!! $posts->links() !!} --}}
           </div>
+
         </div>
       </div>
     </div>

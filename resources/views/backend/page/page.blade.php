@@ -21,26 +21,25 @@
               
             </thead>
             <tbody>
-                @foreach($posts as $post)
+                @foreach($pages as $page)
                 {{-- { dd($post) }} 來源是post的model所以可以直接抓裡面的title  -> --}}
                     <tr>
                         
-                        <td> {{ $post->title }} </td>
+                        <td> {{ $page->title }} </td>
 
-                        <td class="py-1"><img src={{asset('asset/images/' . $post->image)}} alt="image" class="img-thumbnail"/> </td>
-                        <td style="width: 10%">{{ $post->category['name'] }}</td>
-                        <td>{{((mb_strlen((strip_tags ($post->introduction)),'utf8')>50) ? mb_substr((strip_tags($post->introduction)),0,30,'utf8') : ($post->introduction)).' '.((mb_strlen(($post->introduction),'utf8')>20) ? " ..." : "") }}</td>
+                        <td class="py-1"><img src={{asset('asset/images/' . $page->image)}} alt="image" class="img-thumbnail"/> </td>
+                        <td style="width: 10%">{{ $page->category['name'] }}</td>
+                        <td>{{((mb_strlen((strip_tags ($page->introduction)),'utf8')>50) ? mb_substr((strip_tags($page->introduction)),0,30,'utf8') : ($page->introduction)).' '.((mb_strlen(($page->introduction),'utf8')>20) ? " ..." : "") }}</td>
 
-                        <td>{!! Html::linkRoute('posts.edit', '編輯', array($post->id),  array('class' => 'btn btn-secondary btn-block' )) !!} 
-                            {{-- {!! Form::submit('Delect',  ['class' => 'btn btn-danger btn-block']) !!}</td>                  --}}
-                            {!! Html::linkRoute('posts.destroy', '刪除', array($post->id),  array('class' => 'btn btn-secondary btn-block' )) !!}</td>
+                        {{-- <td>{!! Html::linkRoute('pages.edit', '編輯', array($page->id),  array('class' => 'btn btn-secondary btn-block' )) !!} 
+                            {!! Html::linkRoute('pages.destroy', '刪除', array($page->id),  array('class' => 'btn btn-secondary btn-block' )) !!}</td> --}}
                     </tr>
                 @endforeach
             </tbody>
           </table>
           
           <div class=container4 style="text-align:center" >
-            {!! $posts->links() !!}
+            {!! $pages->links() !!}
           </div>
 
         </div>

@@ -31,7 +31,9 @@
     Route::get('posts/{post}/destroy', ['uses' => 'backend\PostController@destroy', 'as' => 'posts.destroy']);
     // 因為沒有用form所以只能用get
 
-    Route::get('/pageCategory', ['uses' => 'backend\PageController@index', 'as' => 'page.Category']);
+    Route::get('/pageCategory', ['uses' => 'backend\PageController@index', 'as' => 'page.index']);
+    Route::get('/pageCategory/{id}', ['uses' => 'backend\PageController@subIndex', 'as' => 'page.subIndex']);
+    Route::get('/showCategoryPages/{id}', ['uses' => 'backend\PageController@showPages', 'as' => 'page.page']);
 
     //後端產品管理
     Route::group(['prefix'=>'products'], function(){
