@@ -42,7 +42,7 @@
                       <td> 
                         {{-- <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button> --}}
                         {{-- <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button> --}}
-                        {!! Html::linkRoute('page.page', '編輯', array($data->id),  array('class' => 'btn btn-primary btn-fwk' )) !!}
+                        {!! Html::linkRoute('page.page', '檢視', array($data->id),  array('class' => 'btn btn-primary btn-fwk' )) !!}
                       </td>
                     {{-- @endif --}}
                   </tr>

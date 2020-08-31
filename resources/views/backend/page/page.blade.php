@@ -34,8 +34,7 @@
                         <td> 無法同時顯示的分類 </td>
                         <td>{{((mb_strlen((strip_tags($content->introduct)),'utf8')>50) ? mb_substr((strip_tags($content->introduct)),0,30,'utf8') : ($content->introduct)).' '.((mb_strlen(($content->introduct),'utf8')>20) ? " ..." : "") }}</td>
                         <td>
-                          <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button>
-                          <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button>    
+                          <button type="button" class="btn btn-primary btn-fwk">編輯</button>
                         </td>
                     </tr>
                 @endforeach

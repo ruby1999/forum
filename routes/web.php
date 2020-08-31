@@ -34,7 +34,10 @@
     Route::get('/pageCategory', ['uses' => 'backend\PageController@index', 'as' => 'page.index']);
     Route::get('/pageCategory/{id}', ['uses' => 'backend\PageController@subIndex', 'as' => 'page.subIndex']);
     Route::get('/showCategoryPages/{id}', ['uses' => 'backend\PageController@showPages', 'as' => 'page.page']);
-    Route::get('/mainCat/create', ['uses' => 'backend\CategoryController@create', 'as' => 'category.create']);  // 在category table 新增categoryID=0
+
+
+    // Route::get('/mainCat/create', ['uses' => 'backend\CategoryController@create', 'as' => 'category.create']);  // 在category table 新增categoryID=0
+    Route::resource('category', 'backend\CategoryController'); //不要建立create的方法，或是把except改成only，只建立哪幾種方法
 
     //後端產品管理
     Route::group(['prefix'=>'products'], function(){
@@ -62,7 +65,7 @@
         
         //後端類別管理
         Route::get('backend', 'backend\HomePageController@getHomePage');
-        Route::resource('categories', 'backend\CategoryController', ['except'=>['create']]); //不要建立create的方法，或是把except改成only，只建立哪幾種方法
+
         Route::resource('tags', 'backend\TagController', ['except'=>['create']]);
         
         Route::get('/', 'frontend\HomePageController@getHomePage');
