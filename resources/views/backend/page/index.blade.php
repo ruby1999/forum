@@ -6,8 +6,8 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">所有貼文列表</h3>
-          <a href="{{route('posts.create')}}" class="btn btn-sm btn-primary fa-align-right" style="float: right">新增消息活動</a>
+        <h3 class="card-title">頁面分類</h3>
+          <a href="{{route('category.create')}}" class="btn btn-sm btn-primary fa-align-right" style="float: right">新增分類</a>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -40,10 +40,10 @@
                         @endif
                       </td>
                       <td> 
-                        <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button>
-                        <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button>                
+                        {{-- <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button> --}}
+                        {{-- <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button> --}}
+                        {!! Html::linkRoute('page.page', '編輯', array($data->id),  array('class' => 'btn btn-primary btn-fwk' )) !!}
                       </td>
-                    }
                     {{-- @endif --}}
                   </tr>
               @endforeach

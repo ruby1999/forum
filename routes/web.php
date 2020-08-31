@@ -34,6 +34,7 @@
     Route::get('/pageCategory', ['uses' => 'backend\PageController@index', 'as' => 'page.index']);
     Route::get('/pageCategory/{id}', ['uses' => 'backend\PageController@subIndex', 'as' => 'page.subIndex']);
     Route::get('/showCategoryPages/{id}', ['uses' => 'backend\PageController@showPages', 'as' => 'page.page']);
+    Route::get('/mainCat/create', ['uses' => 'backend\CategoryController@create', 'as' => 'category.create']);  // 在category table 新增categoryID=0
 
     //後端產品管理
     Route::group(['prefix'=>'products'], function(){

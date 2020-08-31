@@ -7,39 +7,43 @@
     <div class="card">
       <div class="card-body">
         <h3 class="card-title">頁面分類</h3>
-          <a href="{{route('posts.create')}}" class="btn btn-sm btn-primary fa-align-right" style="float: right">新增消息活動</a>
+          <a href="{{route('category.create')}}" class="btn btn-sm btn-primary fa-align-right" style="float: right">新增分類</a>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
+                <th> id </th>
                 <th> 標題 </th>
-                <th> 縮圖 </th>
+                <th> 自訂網址 </th>
+                <th> 父類別id </th>
                 <th> 分類 </th>
-                <th> 簡述 </th>
+                <th> 簡介 </th>
                 <th> 管理 </th>
               </tr>
               
             </thead>
             <tbody>
-                @foreach($pages as $page)
-                {{-- { dd($post) }} 來源是post的model所以可以直接抓裡面的title  -> --}}
+                @foreach($contents as $content)
+                {{-- { dd($post) }} 來源是post的model所以可以直接抓裡面的  -> --}}
                     <tr>
                         
-                        <td> {{ $page->title }} </td>
-
-                        <td class="py-1"><img src={{asset('asset/images/' . $page->image)}} alt="image" class="img-thumbnail"/> </td>
-                        <td style="width: 10%">{{ $page->category['name'] }}</td>
-                        <td>{{((mb_strlen((strip_tags ($page->introduction)),'utf8')>50) ? mb_substr((strip_tags($page->introduction)),0,30,'utf8') : ($page->introduction)).' '.((mb_strlen(($page->introduction),'utf8')>20) ? " ..." : "") }}</td>
-
-                        {{-- <td>{!! Html::linkRoute('pages.edit', '編輯', array($page->id),  array('class' => 'btn btn-secondary btn-block' )) !!} 
-                            {!! Html::linkRoute('pages.destroy', '刪除', array($page->id),  array('class' => 'btn btn-secondary btn-block' )) !!}</td> --}}
+                        <td> {{ $content->id }} </td>
+                        <td> {{ $content->name }} </td>
+                        <td> {{ $content->slug }} </td>
+                        <td> {{ $content->categoryID }} </td>
+                        <td> 無法同時顯示的分類 </td>
+                        <td>{{((mb_strlen((strip_tags($content->introduct)),'utf8')>50) ? mb_substr((strip_tags($content->introduct)),0,30,'utf8') : ($content->introduct)).' '.((mb_strlen(($content->introduct),'utf8')>20) ? " ..." : "") }}</td>
+                        <td>
+                          <button type="button" class="btn btn-dark btn-fw"><i class="mdi mdi-cloud-download"></i>編輯</button>
+                          <button type="button"class="btn btn-dark btn-fw"><i class="mdi mdi-upload"></i>檢視</button>    
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
           </table>
           
           <div class=container4 style="text-align:center" >
-            {!! $pages->links() !!}
+            {{-- {!! $contents->links() !!} --}}
           </div>
 
         </div>

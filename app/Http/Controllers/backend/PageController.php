@@ -51,21 +51,44 @@ class PageController extends Controller
                 $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
             }
         }
+
+        $contents = DB::table('pages')
+        ->join('category', 'pages.categoryID', '=', 'category.id')
+        // ->select('category.id', 'category.name', 'pages.id', 'pages.categoryID', 'pages.name')
+        ->select('pages.*')
+        ->where('pages.categoryID', '=', $request ->id)
+        ->get();
+
+
         // dd(isset($datas));
         // dd($datas);
-        return view('backend.page.index', compact('datas', 'cats'));
+        return view('backend.page.index', compact('datas', 'cats','contents'));
 
     }
 
-    public function showPages()
+    public function showPages(Request $request)
     {
-        $pages = Page::all();
+        $datas = DB::table('category')->distinct()->where('categoryID', '=', $request ->id)->get();
+        // SELECT category.id, category.name, pages.id, pages.categoryID,pages.name FROM pages INNER JOIN category ON pages.categoryID=category.id
+        
+
+        $contents = DB::table('pages')
+                ->join('category', 'pages.categoryID', '=', 'category.id')
+                // ->select('category.id', 'category.name', 'pages.id', 'pages.categoryID', 'pages.name')
+                ->select('pages.*')
+                ->where('pages.categoryID', '=', $request ->id)
+                ->get();
+        // dd($contents);
+
+        if (empty(json_decode($contents)) == true) {
+            echo "it's null" ;
+            // return redirect()->route('posts.edit');
+        }
+
         $categories = Category::all();
-        $pages = Page::orderBy('id', 'asc')->paginate(5);
-        // dd("123");
-        return view('backend.page.page', compact('pages', 'categories'));
+
+        return view('backend.page.page', compact('pages', 'categories','contents'));
         // return view('backend.page.page')->withPage($pages)->withCategories($categories);
     }
-
 
 }

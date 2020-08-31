@@ -5,39 +5,34 @@ namespace App\Http\Controllers\backend;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
-use Illuminate\Support\Facades\DB;
 use Session; //引用會話(提示新建貼文成功)
 
 class CategoryController extends Controller
 {
-
-    public function create()
+    
+    public function index()
     {
-        return view('backend.category.create');
+        //display a view of all of our categrocy
+        //it will also have a form to create a new categrocy
+
+        $categories = Category::all();
+        return view('backend.categories.index')->withCategories($categories);
     }
 
     public function store(Request $request)
     {
+        //save a new category and than redirect back to index
+        $this->validate($request, array(
+            'name' => 'required|max:255|unique:categories'
+            ));
+
         $category = new Category;
         $category->name = $request->name;
-        $category->slug = $request->slug;
-        $category->categoryID = 0 ;
         $category->save();
-        
 
         Session::flash('success', '類別建立成功');
 
-        $datas = DB::table('category')->distinct()->where('categoryID', '=', 0)->get();
-        // dd($datas);
-
-        foreach ($datas as $key => $row) {
-            $datas[$key]->subCategories = DB::table('category')->distinct()->where('categoryID', '=', $row->id)->get();
-            foreach ($datas[$key]->subCategories as $k => $val) {
-                $datas[$key]->subCategories[$k]->childCategories = DB::table('category')->distinct()->where('categoryID', '=', $val->id)->get();
-            }
-        }
-
-        return redirect()->route('page.index', compact('datas', 'cats'));
+        return redirect()->route('categories.index');
     }
 
     public function show($id)
